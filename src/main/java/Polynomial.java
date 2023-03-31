@@ -18,7 +18,7 @@ public class Polynomial {
 
     //copy constructor
     Polynomial ( Polynomial P ) {
-        coefficients = new HashMap< > ( );
+        coefficients = new HashMap<> ( );
 
         ArrayList< Integer > powers = P.getPowers ( );
 
@@ -39,9 +39,17 @@ public class Polynomial {
         }
     }
 
+    public void removeCoefficient ( Integer power ) {
+        coefficients.remove ( power );
+    }
+
     //adds to already existing coefficient or sets a new one
     public void addCoefficient ( Integer power, Double coefficient ) {
-        setCoefficient ( power, coefficient + ( ( coefficients.containsKey ( power ) ) ? getCoefficient ( power ) : 0 ) );
+        Double oldCoefficient = ( hasPower ( power ) ) ? getCoefficient ( power ) : 0;
+        if ( oldCoefficient + coefficient != 0 )
+            setCoefficient ( power, coefficient + oldCoefficient );
+        else
+            removeCoefficient ( power );
     }
 
     //gets coefficient of a certain power
@@ -69,7 +77,7 @@ public class Polynomial {
 
     //returns an ascending sorted array containing the powers of the polynomial without the zero coefficient ones
     public ArrayList< Integer > getPowers ( ) {
-        ArrayList< Integer > list = new ArrayList< > ( coefficients.keySet ( ) );
+        ArrayList< Integer > list = new ArrayList<> ( coefficients.keySet ( ) );
         Collections.sort ( list );
         return list;
     }
@@ -82,7 +90,7 @@ public class Polynomial {
             return;
         }
 
-        ArrayList< Integer > sortedKeys = new ArrayList<  > ( getPowers ( ) );
+        ArrayList< Integer > sortedKeys = new ArrayList<> ( getPowers ( ) );
         sortedKeys.sort ( Collections.reverseOrder ( ) );
 
 
@@ -119,7 +127,7 @@ public class Polynomial {
             return sb.toString ( );
         }
 
-        ArrayList< Integer > sortedKeys = new ArrayList<  > ( getPowers ( ) );
+        ArrayList< Integer > sortedKeys = new ArrayList<> ( getPowers ( ) );
         sortedKeys.sort ( Collections.reverseOrder ( ) );
 
 
