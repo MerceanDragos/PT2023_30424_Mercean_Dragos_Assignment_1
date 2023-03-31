@@ -168,7 +168,7 @@ public class Polynomial {
 
         if ( !monomial.contains ( "x" ) ) {
             power = 0;
-            coefficient = Double.valueOf ( monomial );
+            coefficient = Double.parseDouble ( monomial );
             addCoefficient ( power, coefficient );
             return;
         }
