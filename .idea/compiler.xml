@@ -9,8 +9,5 @@
         <module name="CalculatorPT" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="CalculatorPT" target="19" />
-    </bytecodeTargetLevel>
   </component>
 </project>
