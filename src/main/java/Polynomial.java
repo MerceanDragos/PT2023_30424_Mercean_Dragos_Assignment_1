@@ -9,16 +9,16 @@ public class Polynomial {
     }
 
     //internal representation of a polynomial
-    private HashMap< Integer, Double > coefficients;
+    private final HashMap< Integer, Double > coefficients;
 
     //constructor
     Polynomial ( ) {
-        coefficients = new HashMap< Integer, Double > ( );
+        coefficients = new HashMap<> ( );
     }
 
     //copy constructor
     Polynomial ( Polynomial P ) {
-        coefficients = new HashMap< Integer, Double > ( );
+        coefficients = new HashMap< > ( );
 
         ArrayList< Integer > powers = P.getPowers ( );
 
@@ -69,7 +69,7 @@ public class Polynomial {
 
     //returns an ascending sorted array containing the powers of the polynomial without the zero coefficient ones
     public ArrayList< Integer > getPowers ( ) {
-        ArrayList< Integer > list = new ArrayList< Integer > ( coefficients.keySet ( ) );
+        ArrayList< Integer > list = new ArrayList< > ( coefficients.keySet ( ) );
         Collections.sort ( list );
         return list;
     }
@@ -82,7 +82,7 @@ public class Polynomial {
             return;
         }
 
-        ArrayList< Integer > sortedKeys = new ArrayList< Integer > ( getPowers ( ) );
+        ArrayList< Integer > sortedKeys = new ArrayList<  > ( getPowers ( ) );
         sortedKeys.sort ( Collections.reverseOrder ( ) );
 
 
@@ -119,7 +119,7 @@ public class Polynomial {
             return sb.toString ( );
         }
 
-        ArrayList< Integer > sortedKeys = new ArrayList< Integer > ( getPowers ( ) );
+        ArrayList< Integer > sortedKeys = new ArrayList<  > ( getPowers ( ) );
         sortedKeys.sort ( Collections.reverseOrder ( ) );
 
 
@@ -155,8 +155,8 @@ public class Polynomial {
         if ( monomial.equals ( "" ) )
             return;
 
-        Integer power = 1;
-        Double coefficient = 1.0;
+        int power = 1;
+        double coefficient = 1.0;
 
         if ( !monomial.contains ( "x" ) ) {
             power = 0;
